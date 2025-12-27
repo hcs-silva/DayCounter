@@ -1,0 +1,152 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Comic Sans MS', 'Segoe UI', Tahoma, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Floating hearts animation */
+body::before,
+body::after {
+  content: '❤️';
+  position: absolute;
+  font-size: 50px;
+  animation: float 6s infinite ease-in-out;
+  opacity: 0.3;
+}
+
+body::before {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+
+body::after {
+  content: '💕';
+  bottom: 20%;
+  right: 20%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 30px;
+  padding: 40px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  text-align: center;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 3px solid #ff69b4;
+  position: relative;
+  animation: slideIn 0.8s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  color: #ff1493;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(255, 105, 180, 0.3);
+}
+
+h1::before {
+  content: '💖 ';
+}
+
+h1::after {
+  content: ' 💖';
+}
+
+.separations {
+  background: linear-gradient(135deg, #ffeef8 0%, #fff0f5 100%);
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 20px;
+  font-size: 1.3rem;
+  line-height: 2;
+  color: #d63384;
+  border: 2px dashed #ff69b4;
+  box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+}
+
+.separations section {
+  color: #c71585;
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 15px;
+  animation: pulse 2s infinite;
+}
+
+
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Add sparkle effect */
+.container::before {
+  content: '✨';
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  animation: sparkle 1.5s infinite;
+}
+
+.container::after {
+  content: '✨';
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  font-size: 30px;
+  animation: sparkle 1.5s infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes sparkle {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2);
+  }
+}
