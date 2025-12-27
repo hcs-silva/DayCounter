@@ -65,9 +65,7 @@ function updateResult() {
 
 
 
-//     ${elapsed.minutes} minutes,
-//     ${elapsed.seconds} seconds,
-//     ${elapsed.milliseconds} milliseconds
+
 // Update every second to show live counting
 window.addEventListener("DOMContentLoaded", () => {
   updateResult();
