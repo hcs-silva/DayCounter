@@ -5,6 +5,9 @@ function getElapsedTime(dateString) {
   // Get total difference in milliseconds
   const diffMs = now.getTime() - start.getTime();
 
+  // Calculate total days
+  
+  
   // Calculate each unit
   const millisecondsInSecond = 1000;
   const millisecondsInMinute = millisecondsInSecond * 60;
@@ -14,7 +17,8 @@ function getElapsedTime(dateString) {
   const millisecondsInMonth = millisecondsInDay * 30.44; // Average month length
   const millisecondsInYear = millisecondsInDay * 365.25; // Account for leap years
   
-
+  
+  const totalDays = Math.floor(diffMs / millisecondsInDay);
   const years = Math.floor(diffMs / millisecondsInYear);
   const months = Math.floor((diffMs % millisecondsInYear) / millisecondsInMonth);
   const weeks = Math.floor((diffMs % millisecondsInMonth) / millisecondsInWeek);
@@ -28,13 +32,14 @@ function getElapsedTime(dateString) {
   );
  
 
-  return { years, months, weeks, days, hours, minutes, seconds };
+  return { totalDays, years, months, weeks, days, hours, minutes, seconds };
 }
 
 // Fixed date
 const fixedDate = "2007-07-31";
 
 // const result = document.getElementById("result");
+const totalDays = document.getElementById("totalDays")
 const resultYears = document.getElementById("resultYears");
 const resultMonths = document.getElementById("resultMonths");
 const resultWeeks = document.getElementById("resultWeeks");
@@ -48,6 +53,7 @@ function updateResult() {
   const elapsed = getElapsedTime(fixedDate);
 
 //   result.innerHTML = `<strong>Time Together:</strong><br>`;
+  totalDays.innerHTML = `${elapsed.totalDays} Dias no total ;)`
   resultYears.innerHTML = `${elapsed.years} Anos`;
   resultMonths.innerHTML = `${elapsed.months} Meses`;
   resultWeeks.innerHTML = `${elapsed.weeks} Semanas`;
